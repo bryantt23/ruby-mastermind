@@ -18,4 +18,8 @@ class View
   def show_actual_code(actual_code)
     "The code was #{actual_code}"
   end
+
+  def show_replay_prompt
+    "Press Enter to play again or X to exit"
+  end
 end

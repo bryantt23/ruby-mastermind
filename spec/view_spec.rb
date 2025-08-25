@@ -40,4 +40,11 @@ RSpec.describe View do
       expect(@view.show_actual_code("RGYB")).to eq("The code was RGYB")
     end
   end
+
+  describe "#show_replay_prompt" do
+    it "returns the replay message" do
+      view = View.new
+      expect(view.show_replay_prompt).to eq("Press Enter to play again or X to exit")
+    end
+  end
 end
