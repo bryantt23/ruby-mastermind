@@ -34,4 +34,8 @@ class CodeMaker
 
     { exact_matches:, color_only_matches: }
   end
+
+  def valid_user_guess?(user_guess)
+    (/\A[RGYB]{4}\z/).match?(user_guess.upcase)
+  end
 end
