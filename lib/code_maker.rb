@@ -1,6 +1,9 @@
 class CodeMaker
-  attr_accessor :secret_code
-  @secret_code
+  attr_reader :secret_code
+
+  def initialize
+    @secret_code = generate_secret_code
+  end
 
   def generate_secret_code
     4.times.map { ["R", "Y", "G", "B"].sample }.join("")

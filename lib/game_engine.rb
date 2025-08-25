@@ -2,6 +2,8 @@ require_relative "code_maker"
 require_relative "view"
 
 class GameEngine
+  MAX_CHANCES = 12
+
   def initialize
     @view = View.new
     @code_maker = CodeMaker.new
@@ -26,15 +28,14 @@ class GameEngine
 
   def play_game
     # initialize chances_remaining = 12
-    chances_remaining = 12
+    chances_remaining = MAX_CHANCES
 
     # generate a secret code with CodeMaker
-    secret_code = @code_maker.generate_secret_code
-    @code_maker.secret_code = secret_code
+    @code_maker = CodeMaker.new
 
     # show welcome message with View
     puts @view.show_welcome
-    puts @view.show_actual_code(secret_code)
+    puts @view.show_actual_code(@code_maker.secret_code)
 
     # while chances_remaining > 0
     while chances_remaining > 0
@@ -45,10 +46,13 @@ class GameEngine
       # compare guess with CodeMaker
       user_guess_result = player_move
 
+      # show guess result with View
+      puts @view.show_guess_result(user_guess_result)
+
       # if exact_matches == 4
       if user_guess_result[:exact_matches] == 4
         # show actual code with View
-        puts @view.show_actual_code(secret_code)
+        puts @view.show_actual_code(@code_maker.secret_code)
 
         # show win message with View
         puts @view.show_win_loss(:win)
@@ -56,9 +60,6 @@ class GameEngine
         return
         # end
       end
-
-      # show guess result with View
-      @view.show_guess_result(user_guess_result)
 
       # decrement chances_remaining
       chances_remaining -= 1
@@ -70,7 +71,7 @@ class GameEngine
     puts @view.show_win_loss(:loss)
 
     # show actual code with View
-    puts @view.show_actual_code(secret_code)
+    puts @view.show_actual_code(@code_maker.secret_code)
   end
 
   private
@@ -84,7 +85,7 @@ class GameEngine
       when ""
         return true
       else
-        @view.show_replay_prompt
+        puts @view.show_replay_prompt
       end
     end
   end
