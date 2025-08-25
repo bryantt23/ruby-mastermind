@@ -2,4 +2,20 @@ class View
   def show_welcome
     "Welcome to Code Breaker!"
   end
+
+  def show_remaining_chances(chances_left)
+    "You have #{chances_left} chances left..."
+  end
+
+  def show_guess_result(guess_result)
+    "You have #{guess_result[:exact_matches]} exact match(es), #{guess_result[:color_only_matches]} color match(es)"
+  end
+
+  def show_win_loss(result)
+    result == :win ? "You are a Master Code Breaker!" : "You are broken by the code :("
+  end
+
+  def show_actual_code(actual_code)
+    "The code was #{actual_code}"
+  end
 end
