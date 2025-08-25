@@ -17,12 +17,9 @@ class CodeMaker
       end
     end
 
-    freq = Hash.new
+    freq = Hash.new(0)
 
     secret_code_arr.each do |element|
-      if !freq.has_key?(element)
-        freq[element] = 0
-      end
       freq[element] += 1
     end
 
