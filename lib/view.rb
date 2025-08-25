@@ -22,4 +22,8 @@ class View
   def show_replay_prompt
     "Press Enter to play again or X to exit"
   end
+
+  def prompt_for_guess
+    "Enter your guess"
+  end
 end
