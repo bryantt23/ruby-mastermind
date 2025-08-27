@@ -1,7 +1,9 @@
 require_relative "code_maker"
 require_relative "view"
+require_relative "game_helpers"
 
 class ComputerGameEngine
+  include GameHelpers
   MAX_CHANCES = 12
 
   def initialize
@@ -83,20 +85,6 @@ class ComputerGameEngine
       player_secret_code_is_valid = @code_maker.valid_user_guess?(user_input)
     end
     @code_maker.secret_code = user_input
-  end
-
-  def play_again?
-    puts @view.show_replay_prompt
-    while user_input = gets.chomp
-      case user_input
-      when "X", "x"
-        return false
-      when ""
-        return true
-      else
-        puts @view.show_replay_prompt
-      end
-    end
   end
 
   def computer_move
