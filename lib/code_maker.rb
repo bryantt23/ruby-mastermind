@@ -1,5 +1,5 @@
 class CodeMaker
-  attr_accessor :secret_code
+  attr_reader :secret_code
 
   def initialize
     @secret_code = generate_secret_code
@@ -40,5 +40,9 @@ class CodeMaker
 
   def valid_user_guess?(user_guess)
     (/\A[RGYB]{4}\z/).match?(user_guess.upcase)
+  end
+
+  def set_secret_code(secret_code)
+    @secret_code = secret_code
   end
 end

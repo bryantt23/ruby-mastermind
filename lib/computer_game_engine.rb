@@ -84,7 +84,7 @@ class ComputerGameEngine
       user_input = gets.chomp.upcase
       player_secret_code_is_valid = @code_maker.valid_user_guess?(user_input)
     end
-    @code_maker.secret_code = user_input
+    @code_maker.set_secret_code(user_input)
   end
 
   def computer_move
