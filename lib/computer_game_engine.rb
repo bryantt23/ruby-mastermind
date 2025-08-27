@@ -105,6 +105,3 @@ class ComputerGameEngine
     @code_maker.compare_guess_to_secret_code(computer_guess)
   end
 end
-
-g = ComputerGameEngine.new
-g.start_game

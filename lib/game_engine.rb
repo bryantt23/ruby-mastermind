@@ -2,7 +2,7 @@ require_relative "code_maker"
 require_relative "view"
 
 class GameEngine
-  MAX_CHANCES = 12
+  MAX_CHANCES = 11
 
   def initialize
     @view = View.new
@@ -102,6 +102,3 @@ class GameEngine
     end
   end
 end
-
-g = GameEngine.new
-g.start_game

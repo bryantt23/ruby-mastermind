@@ -34,4 +34,8 @@ class View
   def computer_guess
     "Computer guess is "
   end
+
+  def prompt_for_game
+    "1) you guess 2) computer guesses (X to quit)"
+  end
 end
