@@ -1,5 +1,5 @@
 class CodeMaker
-  attr_reader :secret_code
+  attr_accessor :secret_code
 
   def initialize
     @secret_code = generate_secret_code

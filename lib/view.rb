@@ -26,4 +26,12 @@ class View
   def prompt_for_guess
     "Enter your guess"
   end
+
+  def prompt_for_secret_code
+    "Enter a 4-letter code using only R, G, Y, or B:"
+  end
+
+  def computer_guess
+    "Computer guess is "
+  end
 end
